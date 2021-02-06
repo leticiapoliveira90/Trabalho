@@ -1,17 +1,19 @@
-##################################### PARTE 3: VERIFICA«√O DO MODELO AJUSTADO
-# foram verificados os modelos 5 e 8 de acordo com os critÈrios menores de AIC e BIC 
+
+
+##################################### PARTE 3: VERIFICA√á√ÉO DO MODELO AJUSTADO
+# foram verificados os modelos 5 e 8 de acordo com os crit√©rios menores de AIC e BIC 
 
 # Teste de estabilidade
 autoplot(mod5)
 autoplot(mod7)
 autoplot(mod8)
 
-# Testes dos resÌduos
+# Testes dos res√≠duos
 res5<-residuals(mod5)
 res7<-residuals(mod7)
 res8<-residuals(mod8)
 
-## AutocorrelaÁ„o - Teste de Ljung-Box
+## Autocorrela√ß√£o - Teste de Ljung-Box
 ##H0: os residuos sao iid
 tsdiag(mod5)
 Box.test(res5,lag=12,type="Ljung-Box")
@@ -35,25 +37,25 @@ Box.test(res8,lag=48,type="Ljung-Box")
 ##Teste de Jarque-Bera
 ##H0: normalidade dos residuos
 par(mfrow=c(2,2)) ##colocar 2 em cima e 2 embaixo
-hist(res5, freq=F, ylab='Densidade', xlab='ResÌduos', main='ResÌduos')
-plot(density(res5, kernel = c("gaussian")), main="ResÌduos")   #FunÁ„o de densidade estimada
-qqnorm(res5, ylab='Quantis amostrais', xlab='Quantis teÛricos', main='Quantil-Quantil')
+hist(res5, freq=F, ylab='Densidade', xlab='Res√≠duos', main='Res√≠duos')
+plot(density(res5, kernel = c("gaussian")), main="Res√≠duos")   #Fun√ß√£o de densidade estimada
+qqnorm(res5, ylab='Quantis amostrais', xlab='Quantis te√≥ricos', main='Quantil-Quantil')
 qqline(res5, col = "red")
 shapiro.test(res5)
 jarque.bera.test(res5)
 
 par(mfrow=c(2,2))
-hist(res7, freq=F, ylab='Densidade', xlab='ResÌduos', main='ResÌduos')
-plot(density(res8, kernel = c("gaussian")), main="ResÌduos")   #FunÁ„o de densidade estimada
-qqnorm(res7, ylab='Quantis amostrais', xlab='Quantis teÛricos', main='Quantil-Quantil')
+hist(res7, freq=F, ylab='Densidade', xlab='Res√≠duos', main='Res√≠duos')
+plot(density(res8, kernel = c("gaussian")), main="Res√≠duos")   #Fun√ß√£o de densidade estimada
+qqnorm(res7, ylab='Quantis amostrais', xlab='Quantis te√≥ricos', main='Quantil-Quantil')
 qqline(res7, col = "red")
 shapiro.test(res7)
 jarque.bera.test(res7)
 
 par(mfrow=c(1,1))
-hist(res8, freq=F, ylab='Densidade', xlab='ResÌduos', main='ResÌduos')
-plot(density(res8, kernel = c("gaussian")), main="ResÌduos")   #FunÁ„o de densidade estimada
-qqnorm(res8, ylab='Quantis amostrais', xlab='Quantis teÛricos', main='Quantil-Quantil')
+hist(res8, freq=F, ylab='Densidade', xlab='Res√≠duos', main='Res√≠duos')
+plot(density(res8, kernel = c("gaussian")), main="Res√≠duos")   #Fun√ß√£o de densidade estimada
+qqnorm(res8, ylab='Quantis amostrais', xlab='Quantis te√≥ricos', main='Quantil-Quantil')
 qqline(res8, col = "red")
 shapiro.test(res8)
 jarque.bera.test(res8)
